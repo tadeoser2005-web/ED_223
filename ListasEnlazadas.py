@@ -30,6 +30,30 @@ class ListasEnlazadas:
 
           actual.siguiente = nuevo_nodo
 
+      def Eliminar_Nodo_al_Inicio(self):
+          #si la lista esta vacia no hay nada q eliminar
+          if(self.cabeza == None):
+              print("La lista esta vacia")
+              return
+          #la cabeza pasa a ser el segundo nodo
+          self.cabeza = self.cabeza.siguiente
+
+      def Eliminar_Nodo_al_Final(self):
+          #si la lista esta vacia no hay nada q eliminar
+          if(self.cabeza == None):
+              print("La lista esta vacia")
+              return
+          #si solo hay un nodo, la lista queda vacia
+          if(self.cabeza.siguiente == None):
+              self.cabeza = None
+              return
+          actual = self.cabeza
+          #nos paramos en el penultimo nodo
+          while(actual.siguiente.siguiente):
+              actual = actual.siguiente
+
+          actual.siguiente = None
+
       def Imprimir_ListaEnlazada(self):
           actual = self.cabeza
 
@@ -41,5 +65,12 @@ class ListasEnlazadas:
 Mi_lista = ListasEnlazadas()
 Mi_lista.Insertar_Nodo_al_Inicio(5)
 Mi_lista.Insertar_Nodo_al_Inicio(4)
+Mi_lista.Insertar_Nodo_al_Inicio(8)
+Mi_lista.Insertar_Nodo_al_Inicio(9)
+Mi_lista.Insertar_Nodo_al_Inicio(1)
 Mi_lista.Insertar_Nodo_al_Inicio(3)
+Mi_lista.Imprimir_ListaEnlazada()
+
+Mi_lista.Eliminar_Nodo_al_Final()
+Mi_lista.Eliminar_Nodo_al_Inicio()
 Mi_lista.Imprimir_ListaEnlazada()
